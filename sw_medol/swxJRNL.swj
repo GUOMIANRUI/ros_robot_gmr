@@ -1,0 +1,139 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 06/11/20 by 郭棉锐
+' *****************************************************************************
+Dim swApp As Object
+
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long, longwarnings As Long
+
+Sub main()
+
+Set swApp = _
+Application.SldWorks
+
+swApp.ActivateDoc2 "样车.SLDASM", False, longstatus
+Set Part = swApp.ActiveDoc
+Set Part = swApp.ActiveDoc
+Dim myModelView As Object
+Set myModelView = Part.ActiveView
+myModelView.FrameLeft = 0
+myModelView.FrameTop = 0
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Set Part = Nothing
+swApp.CloseDoc "样车.SLDASM"
+swApp.ActivateDoc2 "装配体1.SLDASM", False, longstatus
+Set Part = swApp.ActiveDoc
+Set Part = swApp.ActiveDoc
+Set myModelView = Part.ActiveView
+myModelView.FrameLeft = 0
+myModelView.FrameTop = 0
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Part.ToolsMassProps
+boolstatus = Part.Extension.SelectByID2("", "FACE", 0.035293065614553143, 0.14438630416594833, -0.15459399216683778, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.0056176460273036355, 0.22016896464441515, -0.10918673686910552, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.055861521810754766, -0.022323566572651998, -0.12299920963312161, False, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.075007925262809749, -0.016980287021056029, -0.12279668865716076, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("电机-2@装配体1", "COMPONENT", 0, 0, 0, False, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", 0.049178973681364369, -0.024318413129719829, -0.12257848384757608, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("电机-1@装配体1", "COMPONENT", 0, 0, 0, False, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", 0.08849389419583531, -0.022592203265332955, -0.12371996005572328, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("电机支架-2@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "EDGE", -0.10708176382314605, 0.026605033749206086, -0.065018561054500879, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-1@装配体1", "COMPONENT", 0, 0, 0, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-2@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-4@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-5@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-6@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-7@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-2@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-3@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-4@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-5@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-6@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-7@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-8@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-9@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-10@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-11@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-12@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", 0.044972712718106322, 0.23177449906108905, -0.14309635052728709, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-2@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-4@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-5@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-6@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-7@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-2@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-3@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-4@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-5@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-6@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-7@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-8@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-9@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-10@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-11@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱50-12@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("激光雷达X4-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("舵机-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("未知", "BROWSERITEM", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("未知", "BROWSERITEM", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("注解@舵机-1@装配体1", "DCABINET", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("未知", "BROWSERITEM", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("前视基准面@舵机-1@装配体1", "PLANE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("上视基准面@舵机-1@装配体1", "PLANE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("右视基准面@舵机-1@装配体1", "PLANE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Point1@原点@舵机-1@装配体1", "EXTSKETCHPOINT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("凸台-拉伸1@舵机-1@装配体1", "BODYFEATURE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("基准面1@舵机-1@装配体1", "PLANE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("凸台-拉伸2@舵机-1@装配体1", "BODYFEATURE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("切除-拉伸1@舵机-1@装配体1", "BODYFEATURE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("凸台-拉伸3@舵机-1@装配体1", "BODYFEATURE", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("底板6-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-8@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-9@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-10@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-11@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("铜柱45-8@装配体1", "COMPONENT", 0, 0, 0, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-9@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-10@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("铜柱45-11@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", 0.034909687814661083, 0.0029999999999290594, -0.096875320139076848, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("底板1-1@装配体1", "COMPONENT", 0, 0, 0, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("底板2-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("底板3-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("底板4-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("底板5-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("底板6-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.029662592351826333, 0.31210273399318567, -0.12179347696422838, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("激光雷达X4-1@装配体1", "COMPONENT", 0, 0, 0, False, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", 0.024008951620601238, 0.18275192508542659, -0.15459399216683778, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("垃圾桶-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.0093440836475906508, 0.19599999999996953, 0.0099771942162192317, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("乘物-1@装配体1", "COMPONENT", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+Part.ToolsMassProps
+Part.ClearSelection2 True
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+swApp.ExitApp
+End Sub

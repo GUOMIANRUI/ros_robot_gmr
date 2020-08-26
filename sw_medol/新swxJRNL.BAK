@@ -1,0 +1,37 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 05/14/20 by 郭棉锐
+' *****************************************************************************
+Dim swApp As Object
+
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long, longwarnings As Long
+
+Sub main()
+
+Set swApp = _
+Application.SldWorks
+
+swApp.ActivateDoc2 "装配体1.SLDASM", False, longstatus
+Set Part = swApp.ActiveDoc
+Set Part = swApp.ActiveDoc
+Dim myModelView As Object
+Set myModelView = Part.ActiveView
+myModelView.FrameLeft = 0
+myModelView.FrameTop = 0
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.08104203218715611, 0.021676036557380485, -0.1444950294922478, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "EDGE", -0.083225487967865774, 0.07033835525453469, 0.018231685828993704, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "EDGE", -0.082496485664364627, 0.067966033601408071, 0.014097821647226283, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.082136712286001057, 0.06840309522610255, 0.014323164827885648, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.081953364117623551, 0.13496820569321244, 0.014221987976554828, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.08188648137297605, 0.17030240577284417, 0.014185080133302108, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("", "FACE", -0.048923873865476253, 0.23704356761919598, -0.084978404988817147, False, 0, Nothing, 0)
+Part.ClearSelection2 True
+Set Part = Nothing
+swApp.CloseDoc "装配体1.SLDASM"
+swApp.ExitApp
+End Sub
