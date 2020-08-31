@@ -9,14 +9,16 @@
 
 导航功能包：jetsonbot_nav 
 
-键盘控制功能包：teleop_twist_keyboard
+键盘控制功能包：teleop\_twist\_keyboard
+
+机器人模型功能包：jetsonbot\_description
 
 ## 树莓派端功能包
-arduino驱动功能包：ros_arduino_bridge
+arduino驱动功能包：ros\_arduino\_bridge
 
-雷达驱动功能包：
+雷达驱动功能包：ydlidar_master
 
-imu驱动功能包：
+imu驱动功能包：rasp\_imu\_hat\_6dof
 
 ## 机器人模型
 solidworks模型：sw_model
@@ -182,3 +184,4 @@ source install_setup.bash
 ![机器人实地建图过程](https://s1.ax1x.com/2020/08/31/dXOWrj.jpg)
 
 ![机器人实地导航过程](https://s1.ax1x.com/2020/08/31/dXz97d.jpg)
+>附：[ros相关学习资料](https://github.com/GUOMIANRUI/Ros-1)
