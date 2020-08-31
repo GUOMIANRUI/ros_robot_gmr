@@ -85,6 +85,38 @@ port:/dev/arduino
 参数use\_odometry设置为false，因为我们使用内部/odom的数据，不使用外部的；
 
 修改参数之前，还是建议去看看[官方文档](https://google-cartographer-ros.readthedocs.io/en/latest/index.html)，这里准比其他任何地方可靠。
+
+#### 3.3 导航包四个配置文件
+
+##### costmap_common_params.yaml
+	obstacle_range: 最大障碍物检测范围,超过该范围不认为是障碍物
+	raytrace_range: 检测自由空间的最大范围
+	robot_radius: 机器人本体的半径大小,单位:米,圆形机器人使用
+	footprint: 对于非圆形机器人可以设置该参数,机器人中心[0,0]参数可以顺时针填写,也可以逆时针填写
+	inflation_radius: 与障碍物的安全半径距离,如果机器人经常撞到障碍物就需要增大该值,若无法通过狭窄地方就减小该值
+	cost_scaling_factor:用于将inflation计算cost的比例因数,该参数越大,越不把这个inflating看着移动的cost.map_type:如果想要3D视图的就用voxel,2D视图的就用costmap参数 
+	observation_sources: 观察源是激光雷达
+##### local_costmap_params.yaml
+	global_frame:指定本地代价地图参考系
+	robot_base_frame:指定机器人的base_frame
+	update_frequency:指定local代价地图更新频率
+	publish_frequency: 代价地图发布可视化信息的频率
+	static_map: 本地代价地图不会更新地图，设置false
+	rolling_window: 设置滚动窗口,使机器人始终在窗体中心位置
+	width: 代价地图宽度,滑动地图x维长度
+	height:代价地图长度,滑动地图y维长度
+	 resolution: 代价地图的分辨率,该参数需要与yaml文件设置的地图
+	transform_tolerance: 指定在tf树中frame直接的转换最大延时，单位秒
+##### global_costmap_params.yaml
+	global_frame: 全局代价地图参考系
+	robot_base_frame: 指定机器人的基础参考系
+	update_frequency: 指定地图更新频率，数值太大造成CPU负担重
+	publish_frequency: 对于静态全局地图来说，不需不断发布
+	static_map: 全局地图通常是静态的，因此设置为true
+	rolling_window: 全局地图不会在机器人移动时候更新
+	transform_tolerance: 指定在tf树中frame直接的转换最大延时，单位秒
+##### dwa_local_planner_params.yaml
+	DWA局部规划器配置参数
 ### 4.编译功能包
 >我这边的代码是已经编译过了的，所以如果要拿去用记得把编译生成的文件去掉再进行编译
 
@@ -106,24 +138,47 @@ source install_setup.bash
 
 没有ssh服务就下载相应服务，PC端ROS与树莓派端ROS通讯、串口绑定也不复杂，这里贴两个网站供参考，[PC与树莓派端ROS通讯](https://www.cnblogs.com/hiram-zhang/p/10410168.html)、[tty串口绑定](https://www.cnblogs.com/hiram-zhang/p/10410175.html)
 
+>arduino
+
+记得将last_arduino_bridge烧录到arduino中
+
 ### 5.机器人启动流程
 
 `1. `启动rosmaster:roscore
 
 `2. `ssh远程登录树莓派 ssh USERNAME@IP
-- 启动雷达：roslaunch ydlidar lidar.launch
-- 启动底盘：roslaunch ros_arduino_python arduino.launch
-- 启动imu（可选）：roslaunch serial_imu_hat_6dof serial_imu_hat.launch
+
+- 启动雷达：`roslaunch ydlidar lidar.launch`
+- 启动底盘：`roslaunch ros_arduino_python arduino.launch`
+- 启动imu（可选）：`roslaunch serial_imu_hat_6dof serial_imu_hat.launch`
 
 `3. `启动cartographer建图节点
-- source install_setup.bash
-- roslaunch cartographer_ros jetsonbot_2d_only_lidar.launch
 
-`4. `保存地图
+- `source install_setup.bash`
+- `roslaunch cartographer_ros jetsonbot_2d_only_lidar.launch`
+
+`4. `启动键盘控制节点
+
+- `chmod a+x teleop_twist_keyboard.py`
+- `./teleop_twist_keyboard.py`
+
+`5. `保存地图
+
 - 重开一个终端 在cartographer_ws下 `source install_setup.bash`配置环境变量
 - 在用户家目录下创建一个目录maps
 - 在刚刚的终端输入`rosrun cartographer_ros cartographer_pbstream_to_ros_map -map_filestem=/home/guomianrui/maps/gmr_map  -pbstream_filename=/home/guomianrui/maps/gmr_map.pbstream -resolution=0.05`
-`5. `启动导航包
-- 
 
-- 
+`5. `启动导航包
+
+- `roslaunch jetsonbot_nav jetsonbot_nav_nengyuan.launch`
+
+### 6.运行效果截图
+
+>说明：README写得可能不够完善，开学比较忙就暂时不做补充了，有错误之处烦请指正，有错即改，导航包还不完善，本文参考即可。
+>这台机器人是花费一段时间了的，本着开源精神将模型和代码发出来，希望对各位小伙伴有所帮助
+
+![机器人在rviz中](https://s1.ax1x.com/2020/08/31/dj9pBF.jpg)
+
+![机器人实地建图过程](https://s1.ax1x.com/2020/08/31/dXOWrj.jpg)
+
+![机器人实地导航过程](https://s1.ax1x.com/2020/08/31/dXz97d.jpg)
