@@ -64,7 +64,7 @@ sudo rosdep init 失败 raw.githubsercontent.com挂了
 [简单粗暴](https://community.bwbot.org/topic/811/rosdep-init-%E6%88%96%E8%80%85rosdep-update-%E8%BF%9E%E6%8E%A5%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95)
 
 ### 3.配置参数
-####3.1 ros\_arduino\_python\config\my_arduino_params.yaml
+#### 3.1 ros\_arduino\_python\config\my_arduino_params.yaml
 port:/dev/arduino
 
 轮子直径 wheel_diameter:0.068 (单位：米)
@@ -75,7 +75,7 @@ port:/dev/arduino
 
 减速比 gear_reduction:43.8
 
-####3.2 cartographer\_ws\install\_isolated\share\cartographer\_ros\configuration\_files\jetsonbot\_2d\_only\_lidar.lua
+#### 3.2 cartographer\_ws\install\_isolated\share\cartographer\_ros\configuration\_files\jetsonbot\_2d\_only\_lidar.lua
 参数tracking_frame设置为imu\_link，使用/imu的数据；设置为base\_link,则不使用（imu数据错误时可以不用imu的数据）
 
 参数published\_frame设置为base\_link；
@@ -94,7 +94,37 @@ port:/dev/arduino
 
 `cartographer_ws`比较特殊，要与`catkin_ws`分开编译
 
-    ```shell
-    catkin_make_isolated --install --use-ninja
-    source install_setup.bash
-    ```
+```bash
+catkin_make_isolated --install --use-ninja
+source install_setup.bash
+```
+>树莓派
+
+同样创建一个工作空间，将`rasp_imu_hat_6dof`和`ros_arduino_bridge`、`ydlidar-master`放到src文件夹下，catkin_make编译即可
+
+>同时要做好ssh通讯和串口绑定
+
+没有ssh服务就下载相应服务，PC端ROS与树莓派端ROS通讯、串口绑定也不复杂，这里贴两个网站供参考，[PC与树莓派端ROS通讯](https://www.cnblogs.com/hiram-zhang/p/10410168.html)、[tty串口绑定](https://www.cnblogs.com/hiram-zhang/p/10410175.html)
+
+### 5.机器人启动流程
+
+`1. `启动rosmaster:roscore
+
+`2. `ssh远程登录树莓派 ssh USERNAME@IP
+- 启动雷达：roslaunch ydlidar lidar.launch
+- 启动底盘：roslaunch ros_arduino_python arduino.launch
+- 启动imu（可选）：roslaunch serial_imu_hat_6dof serial_imu_hat.launch
+
+`3. `启动cartographer建图节点
+- source install_setup.bash
+- roslaunch cartographer_ros jetsonbot_2d_only_lidar.launch
+
+`4. `保存地图
+- 重开一个终端 在cartographer_ws下 `source install_setup.bash`配置环境变量
+- 在用户家目录下创建一个目录maps
+- 在刚刚的终端输入`rosrun cartographer_ros cartographer_pbstream_to_ros_map -map_filestem=/home/guomianrui/maps/gmr_map  -pbstream_filename=/home/guomianrui/maps/gmr_map.pbstream -resolution=0.05`
+
+`5. `启动导航包
+- 
+
+- 
