@@ -123,7 +123,6 @@ source install_setup.bash
 - 重开一个终端 在cartographer_ws下 `source install_setup.bash`配置环境变量
 - 在用户家目录下创建一个目录maps
 - 在刚刚的终端输入`rosrun cartographer_ros cartographer_pbstream_to_ros_map -map_filestem=/home/guomianrui/maps/gmr_map  -pbstream_filename=/home/guomianrui/maps/gmr_map.pbstream -resolution=0.05`
-
 `5. `启动导航包
 - 
 
