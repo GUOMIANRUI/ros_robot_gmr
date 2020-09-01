@@ -170,7 +170,7 @@ source install_setup.bash
 - 在用户家目录下创建一个目录maps
 - 在刚刚的终端输入`rosrun cartographer_ros cartographer_pbstream_to_ros_map -map_filestem=/home/guomianrui/maps/gmr_map  -pbstream_filename=/home/guomianrui/maps/gmr_map.pbstream -resolution=0.05`
 
-`5. `启动导航包
+`6. `启动导航包
 
 - `roslaunch jetsonbot_nav jetsonbot_nav_nengyuan.launch`
 
@@ -178,6 +178,8 @@ source install_setup.bash
 
 >说明：README写得可能不够完善，开学比较忙就暂时不做补充了，有错误之处烦请指正，有错即改，导航包还不完善，本文参考即可。
 >这台机器人是花费一段时间了的，本着开源精神将模型和代码发出来，希望对各位小伙伴有所帮助
+
+![实物](https://s1.ax1x.com/2020/09/01/dv5CHf.jpg)
 
 ![机器人在rviz中](https://s1.ax1x.com/2020/08/31/dj9pBF.jpg)
 
