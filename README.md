@@ -1,9 +1,10 @@
 # ROS移动机器人开发总结
 
 - 姓名：郭棉锐
-- 学号：3118000492
+- 电话：13727654235
 - 院系：机电工程学院机械电子工程专业
-- 联系方式：2659350920@qq.com
+- 联系方式：mianrui.guo@qq.com
+- bilibili：https://www.bilibili.com/video/BV1T5411x7Tq
 
 ---
 ## 一、什么是ROS
