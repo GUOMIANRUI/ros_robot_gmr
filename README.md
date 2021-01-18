@@ -2,7 +2,6 @@
 
 - 姓名：郭棉锐
 - 电话：13727654235
-- 院系：机电工程学院机械电子工程专业
 - 联系方式：mianrui.guo@qq.com
 - bilibili：https://www.bilibili.com/video/BV1T5411x7Tq
 
